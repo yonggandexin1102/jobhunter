@@ -1,5 +1,7 @@
 package usermanager.business.impl;
 
+import org.apache.commons.logging.Log;
+
 import usermanager.business.interf.IUserLogin;
 
 /**
@@ -12,5 +14,5 @@ import usermanager.business.interf.IUserLogin;
  */
 public class UserLoginImpl implements IUserLogin
 {
-    
+	public static Log log;
 }
