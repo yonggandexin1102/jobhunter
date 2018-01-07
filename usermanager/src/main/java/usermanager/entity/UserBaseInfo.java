@@ -24,7 +24,7 @@ public class UserBaseInfo
     /**
      * 用户密码
      */
-    private String pwd;
+    private String password;
     
     public String getUserName()
     {
@@ -48,12 +48,12 @@ public class UserBaseInfo
     
     public String getPwd()
     {
-        return pwd;
+        return password;
     }
     
     public void setPwd(String pwd)
     {
-        this.pwd = pwd;
+        this.password = pwd;
     }
     
 }

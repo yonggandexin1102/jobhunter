@@ -1,5 +1,7 @@
 package usermanager.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import usermanager.entity.UserBaseInfo;
@@ -13,6 +15,7 @@ import usermanager.entity.UserBaseInfo;
  * @Since:2018年1月7日
  * @Version:1.1.0
  */
+@Mapper
 public interface UserInfoMapper
 {
     /**
@@ -22,6 +25,6 @@ public interface UserInfoMapper
      * @return
      * @Description:
      */
-    @Select("SELECT userId,username,pwd FROM tbl_users")
-    UserBaseInfo getUserBaseInfoByName(String Name);
+    @Select("SELECT UUID,USERNAME,U_PASSWORD FROM tbl_user_base_info where username = #{userName}")
+    UserBaseInfo getUserBaseInfoByName(@Param("userName")String Name);
 }
