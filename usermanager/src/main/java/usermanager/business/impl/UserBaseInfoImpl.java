@@ -1,5 +1,7 @@
 package usermanager.business.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
 
 import usermanager.business.interf.IUserBaseInfo;
@@ -17,7 +19,7 @@ import usermanager.mapper.UserInfoMapper;
 @Component
 public class UserBaseInfoImpl implements IUserBaseInfo
 {
-
+    @Resource
     private UserInfoMapper userInfoMapper;
 
     @Override
@@ -31,5 +33,4 @@ public class UserBaseInfoImpl implements IUserBaseInfo
         
         return true;            
     }
-
 }

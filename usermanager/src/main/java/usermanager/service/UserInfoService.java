@@ -48,8 +48,9 @@ public class UserInfoService
         this.userBaseInfo = userBaseInfo;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/verify-user")
+    @RequestMapping(method = RequestMethod.POST, value = "/verify-user")
     public boolean verifyUser(@RequestBody UserBaseInfo userBaseInfo) {
+        System.out.println(userBaseInfo.getUserId());
         return this.userBaseInfo.validateUser(userBaseInfo);
     }
 }

@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS tbl_user_base_info;
+
+create table tbl_user_base_info 
+(
+	UUID VARCHAR(32),
+	USERNAME VARCHAR(255) NOT NULL,
+	U_PASSWORD VARCHAR(20) NOT NULL,
+UNIQUE(USERNAME),
+PRIMARY KEY (UUID)
+)
