@@ -1,7 +1,12 @@
 package usermanager.business.interf;
 
-public class IUserResume {
+import usermanager.entity.UserResumeInfo;
+
+public interface IUserResume {
+
+	//获取用户简历
+	public UserResumeInfo getUserResume(String user_id);
 	
-	//获取用户的简历信息
-	public 
+	//删除用户简历
+	public void deleteUserResume(String user_id);
 }

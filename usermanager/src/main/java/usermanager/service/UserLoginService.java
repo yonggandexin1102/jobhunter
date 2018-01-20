@@ -4,12 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import usermanager.business.impl.UserLoginValidateImpl;
-import usermanager.business.interf.IUserLoginValidate;
-import usermanager.entity.UserBaseInfo;
 import usermanager.entity.UserLoginInfo;
 
 /**
@@ -20,6 +16,7 @@ import usermanager.entity.UserLoginInfo;
  * @Since:2018年1月5日
  * @Version:1.1.0
  */
+
 @RestController
 @RequestMapping("/userManager/userBaseInfo")
 public class UserLoginService
@@ -52,7 +49,6 @@ public class UserLoginService
     public String find() {
     	return "hello!!!";
     }
-
 	
     @RequestMapping(method = RequestMethod.POST, value = "/verify-user")
     public String verifyUser(@RequestBody UserLoginInfo userLoginInfo) {

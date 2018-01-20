@@ -1,5 +1,7 @@
 package usermanager.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -17,7 +19,7 @@ public interface UserEduInfoMapper {
 	
 	//删除一条用户教育信息
 	@Delete("delete from tbl_user_edu_info where user_id=#{user_id}")
-	public void deleteUserEduInfo(@Param("user_id") int id);
+	public void deleteUserEduInfo(@Param("user_id") String id);
 	
 	//改变一条用户教育信息
 	@Update("update tbl_user_edu_info set user_school_name=#{user_school_name},user_major_name=#{user_major_name},user_diploma=#{user_diploma},"+
@@ -26,5 +28,5 @@ public interface UserEduInfoMapper {
 	
 	//查询一条用户教育信息
 	@Select("select edu_id,user_school_name,user_major_name,user_diploma,user_graduate_time,user_id from tbl_user_edu_info where user_id=#{user_id}")
-	public UserEduInfo selectUserEduInfo(@Param("user_id") int id);
+	public List<UserEduInfo> selectUserEduInfo(@Param("user_id") String id);
 }

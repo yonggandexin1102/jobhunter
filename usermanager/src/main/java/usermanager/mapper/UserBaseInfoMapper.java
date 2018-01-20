@@ -1,5 +1,7 @@
 package usermanager.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -30,5 +32,5 @@ public interface UserBaseInfoMapper {
 	
 	//删除一条用户基本信息
 	@Delete("delete from tbl_user_base_info where user_id=#{user_id}")
-	public void deletUserBaseInfo(@Param("user_id") int id);
+	public void deletUserBaseInfo(@Param("user_id") String id);
 }

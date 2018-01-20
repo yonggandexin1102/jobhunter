@@ -7,7 +7,7 @@ public class UserEduInfo {
 	private String user_major_name;
 	private String user_diploma;
 	private String user_graduate_time;
-	private int user_id;
+	private String user_id;
 
 	public int getEdu_id() {
 		return edu_id;
@@ -50,11 +50,11 @@ public class UserEduInfo {
 	}
 	
 
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 

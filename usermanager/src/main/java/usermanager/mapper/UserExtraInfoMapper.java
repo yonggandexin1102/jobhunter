@@ -19,7 +19,7 @@ public interface UserExtraInfoMapper {
 
 	//删除一条用户额外信息
 	@Delete("delete from tbl_usre_extra_info where user_id=#{user_id}")
-	public void deleteUserExtraInfo(@Param("user_id") int id);
+	public void deleteUserExtraInfo(@Param("user_id") String id);
 	
 	//改变一条用户额外信息
 	@Update("update tbl_usre_extra_info set user_self_discription=#{user_self_discription},user_expect_position=#{user_expect_position,uers_labor_relattion=#{uers_labor_relattion},user_excepted_city=#{user_excepted_city},"+
@@ -28,7 +28,7 @@ public interface UserExtraInfoMapper {
 	
 	//查询一条用户额外信息
 	@Select("select extra_id,user_self_discription,user_expect_position,uers_labor_relattion,user_excepted_city,user_excepted_salary,user_supplement_discription,user_current_work_state,user_id from tbl_usre_extra_info where user_id=#{user_id}")
-	public UserExtraInfo selectUserEduInfo(@Param("user_id") int id);
+	public UserExtraInfo selectUserEduInfo(@Param("user_id") String id);
 	
 	//查询所有用户额外信息
 	@Select("select extra_id,user_self_discription,user_expect_position,uers_labor_relattion,user_excepted_city,user_excepted_salary,user_supplement_discription,user_current_work_state,user_id from tbl_usre_extra_info")
