@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import usermanager.business.interf.IUserBaseInfo;
+import usermanager.business.impl.UserLoginValidateImpl;
+import usermanager.business.interf.IUserLoginValidate;
 import usermanager.entity.UserBaseInfo;
+import usermanager.entity.UserLoginInfo;
 
 /**
  * 
@@ -20,37 +22,49 @@ import usermanager.entity.UserBaseInfo;
  */
 @RestController
 @RequestMapping("/userManager/userBaseInfo")
-public class UserInfoService
+public class UserLoginService
 {
-    private IUserBaseInfo userBaseInfo;
+    private UserLoginValidateImpl userloginvalidate;
+     
+    public UserLoginValidateImpl getUserBaseInfo()
+    {
+        return userloginvalidate;
+    }
+
+    public void setUserBaseInfo(UserLoginValidateImpl userloginvalidate)
+    {
+        this.userloginvalidate = userloginvalidate;
+    }
     
     @Autowired
-    public UserInfoService(IUserBaseInfo userBaseInfo)
+    public UserLoginService(UserLoginValidateImpl userloginvalidate)
     {
         super();
-        this.userBaseInfo = userBaseInfo;
+        this.userloginvalidate = userloginvalidate;
     }
 
-    @RequestMapping("/greeting")
-    public UserBaseInfo getBaseInfo(@RequestParam(value = "id") String id)
-    {
-        return null;
-        
+    @RequestMapping(method = RequestMethod.POST, value = "/log")
+    public String logIn() {
+    	return "nihao!!!";
     }
     
-    public IUserBaseInfo getUserBaseInfo()
-    {
-        return userBaseInfo;
+    @RequestMapping(method = RequestMethod.GET, value = "/find")
+    public String find() {
+    	return "hello!!!";
     }
 
-    public void setUserBaseInfo(IUserBaseInfo userBaseInfo)
-    {
-        this.userBaseInfo = userBaseInfo;
-    }
-
+	
     @RequestMapping(method = RequestMethod.POST, value = "/verify-user")
-    public boolean verifyUser(@RequestBody UserBaseInfo userBaseInfo) {
-        System.out.println(userBaseInfo.getUserId());
-        return this.userBaseInfo.validateUser(userBaseInfo);
+    public String verifyUser(@RequestBody UserLoginInfo userLoginInfo) {
+    	if (userLoginInfo == null) {
+    		return "没有接收到信息";
+    	}
+        return this.userloginvalidate.validate(userLoginInfo);
     }
+    
+    @RequestMapping(method = RequestMethod.POST,value = "/insertuser")
+    public String insertUser(@RequestBody UserLoginInfo userLoginInfo) {
+    	return userloginvalidate.insert(userLoginInfo);
+    }
+	    
 }
